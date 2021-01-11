@@ -1,0 +1,6 @@
+void additionTests();
+void multiplicationTests();
+void divisionTests();
+void subtracctionTests();
+void findRemainderTests();
+~

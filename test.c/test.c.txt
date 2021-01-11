@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void additionTests() {
+  int xValues[] = {2, 0, -10, 4, -5};
+  int yValues[] = {8, 0, -10, 0, 5};
+  int expected[] = {10, 0, -20, 4, 0};
+  char* tests[] = {"adding two postive numbers", "adding zeros", "adding two negative numbers", "adding a positive number and zero", "adding a positive and a negative"};
+
+int i;
+  for (i = 0; i < 5; i++) {
+    int actual = addition(xValues[i], yValues[i]);
+    if (actual != expected[i]) {
+     fprintf(stderr, "additionTest - %s - has failed... actual: %d expected: %d\n", tests[i], actual, expected[i]);
+     exit(1);
+    }
+  }
+printf("addition test passed.\n");
+  return;
+}
+
+void multiplicationTests() {
+  int xValues[] = {2, 0, -10, 4, -5};
+  int yValues[] = {8, 0, -10, 0, 5};
+  int expected[] = {16, 0, 100, 0, -25};
+  char* tests[] = {"multiplying two postive numbers", "multiplying zeros", "multiplying two negative numbers", "multiplying a positive number and zero", "multiplying a positive and a negative"};
+
+int i;
+  for (i = 0; i < 5; i++) {
+    int actual = multiplication(xValues[i], yValues[i]);
+    if (actual != expected[i]) {
+     fprintf(stderr, "multiplication - %s - has failed... actual: %d expected: %d\n", tests[i], actual, expected[i]);
+     exit(1);
+    }
+  }
+printf("multiplication test passed.\n");
+  return;
+}
+
+void subtractionTests() {
+  int xValues[] = {2, 0, -10, 4, -5};
+  int yValues[] = {8, 0, -10, 0, 5};
+  int expected[] = {-6, 0, 0, 4, -10};
+  char* tests[] = {"subtracting two postive numbers", "subtracting zeros", "subtracting two negative numbers", "subtracting a positive number and zero", "subtracting a positive and a negative"};
+
+int i;
+  for (i = 0; i < 5; i++) {
+    int actual = subtraction(xValues[i], yValues[i]);
+    if (actual != expected[i]) {
+     fprintf(stderr, "subtraction - %s - has failed... actual: %d expected: %d\n", tests[i], actual, expected[i]);
+     exit(1);
+    }
+  }
+printf("subtraction test passed.\n");
+  return;
+}
+
+void divisionTests() {
+  int xValues[] = {8, -10, 0, -5};
+  int yValues[] = {2, -10, 4, 5};
+  int expected[] = {4, 1, 0, -1};
+  char* tests[] = {"dividing two postive numbers", "dividing two negative numbers", "dividing zero and a positive number", "dividing a positive and a negative"};
+
+int i;
+  for (i = 0; i < 4; i++) {
+    int actual = division(xValues[i], yValues[i]);
+    if (actual != expected[i]) {
+     fprintf(stderr, "divisionTest - %s - has failed... actual: %d expected: %d\n", tests[i], actual, expected[i]);
+     exit(1);
+    }
+  }
+printf("division test passed.\n");
+  return;
+}
+
+void findRemainderTests() {
+  int xValues[] = {8, -10, 0, -5};
+  int yValues[] = {2, -11, -3, 4};
+  int expected[] = {0, -10, 0, -1};
+  char* tests[] = {"remainder of two postive numbers", "remainder of two negative numbers", "remainder of zero and a positive number", "remainder a positive and a negative"};
+
+int i;
+  for (i = 0; i < 4; i++) {
+    int actual = findRemainder(xValues[i], yValues[i]);
+    if (actual != expected[i]) {
+     fprintf(stderr, "remainderTest - %s - has failed... actual: %d expected: %d\n", tests[i], actual, expected[i]);
+     exit(1);
+    }
+  }
+printf("remainder test passed.\n");
+  return;
+}

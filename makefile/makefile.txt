@@ -1,0 +1,11 @@
+GCC = gcc
+CFlAGS = -g -Wall -Wshadow
+DEPS = operations.h operations.c test.h test.c calculatorMain.c
+OBJ = operations.o test.o calculatorMain.o
+
+%.o: %.c $(DEPS)
+        $(CC) $(CFLAGS) -c -o $@ $<
+
+calculator: $(OBJ)
+        $(GCC) $(CFLAGS) -o $@ $^
+

@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv){
+
+        int i;
+        for(i=0; i < argc; i++){
+                if(strcmp(argv[i], "-t") == 0){
+                        printf("You would like to test the calculator.\n");
+                        additionTests();
+                        multiplicationTests();
+                        divisionTests();
+                        subtractionTests();
+                        findRemainderTests();
+                }
+
+                else if(strcmp(argv[i], "-h") == 0){
+                        printf("This is the help area. To operate the calcuator, you select an option by the number it is assigned to then follow the prompt.\n");
+                }
+        }
+
+        printf("Welcome to the calculator!\nYour options are:\n1)Addition\n2)Multiplication\n3)Division\n4)Subtraction\n5)Remainder(modulus)\n6)Quit. \nPlease enter the number of the option you wish to execute:");
+
+        int option, num1, num2, result;
+
+        do{
+                scanf("%d", &option);
+
+                if(option == 1){
+                        printf("you chose Addition!\n");
+                        printf("Please enter the two numbers you wish to add(seperated by a space then hit enter:");
+                        scanf("%d %d", &num1, &num2);
+                        result = addition( num1, num2);
+                        printf("The result is: %d\n", result);
+                        return EXIT_SUCCESS;
+                }
+
+                else if(option == 2){
+                        printf("you chose Multiply!\n");
+                        printf("Please enter the two numbers you wish to multiply(seperated by a space then hit enter:");
+                        scanf("%d %d", &num1, &num2);
+                        result = multiplication( num1, num2);
+                        printf("The result is: %d\n", result);
+                        return EXIT_SUCCESS;
+                }
+
+                else if(option == 3){
+                        printf("you chose Division!\n");
+                        printf("Please enther the two numbers you wish to divide(seperated by a space then hit enter:");
+                        scanf("%d %d", &num1, &num2);
+
+                        do{
+                                if(num2 == 0){
+                                        printf("ERROR: cannot divide by 0, please re-enter BOTH numbers:");
+                                        scanf("%d %d", &num1, &num2);
+                                }
+                        }while(num2 == 0);
+                        result = division( num1, num2);
+                        printf("The result is: %d\n", result);
+                        return EXIT_SUCCESS;
+                }
+
+                else if(option == 4){
+                        printf("you chose Subtraction!\n");
+                        printf("Please enther the two numbers you wish to subtract(seperated by a space then hit enter:");
+                        scanf("%d %d", &num1, &num2);
+                        result = subtraction( num1, num2);
+                        printf("The result is: %d\n", result);
+                        return EXIT_SUCCESS;
+                }
+
+                else if(option == 5){
+                        printf("you chose to get the remainder!\n");
+                        printf("Please enther the two numbers you wish to find the remainder of(seperated by a space then hit enter:");
+                        scanf("%d %d", &num1, &num2);
+                        do{
+                                if(num2 == 0){
+                                        printf("ERROR: cannot divide by 0, please re-enter BOTH numbers:");
+                                        scanf("%d %d", &num1, &num2);
+                                }
+                        }while(num2 == 0);
+                        result = findRemainder(num1, num2);
+                        printf("The result is: %d\n", result);
+                        return EXIT_SUCCESS;
+                }
+
+                else if(option == 6){
+                        printf("You chose to quit, have a great day\n!");
+                        return EXIT_SUCCESS;
+                }
+
+                else {
+                        printf("Invalid option. Restart program and choose correct option:\n");
+                        break;
+                }
+        }while(option != 1 || option != 2 || option != 3 || option != 4 || option != 5 || option != 6);
+return EXIT_SUCCESS;
+}
